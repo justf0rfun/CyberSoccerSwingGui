@@ -35,6 +35,7 @@ class ScalingMatchView(matchConfiguration: MatchConfiguration, hostColor: Color,
 			})
 			graphics.setColor(Color.BLACK)
 			graphics.fillOval((currentMatchState.ball.location.x - currentMatchState.ball.radius).toInt, (currentMatchState.ball.location.y - currentMatchState.ball.radius).toInt, currentMatchState.ball.diameter.toInt, currentMatchState.ball.diameter.toInt)
+			graphics.dispose()
 		}
 	}
 
