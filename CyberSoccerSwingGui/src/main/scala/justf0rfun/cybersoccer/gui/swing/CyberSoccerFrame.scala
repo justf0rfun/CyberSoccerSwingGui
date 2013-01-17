@@ -73,7 +73,7 @@ class CyberSoccerFrame(matchConfiguration: MatchConfiguration, matchController: 
 	private val margin = 20
 	private val layeredPane = new SimpleLayeredPane
 	private val fieldView = new ScalingSoccerFieldView(matchConfiguration.field, margin)
-	private val matchView = new ScalingMatchView(matchConfiguration, hostColor, guestColor, margin)
+	private val matchView = new ScalingMatchView(hostColor, guestColor, margin)
 	matchView.setOpaque(false)
 	private val textMessagePane = new TextMessagePane(3000000000l)
 	layeredPane.add(textMessagePane)

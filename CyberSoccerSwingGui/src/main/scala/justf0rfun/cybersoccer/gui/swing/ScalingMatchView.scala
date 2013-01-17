@@ -12,7 +12,7 @@ import justf0rfun.cybersoccer.model.MatchState
 import justf0rfun.cybersoccer.model.SoccerField
 import justf0rfun.mathematics.geometry.Angle
 
-class ScalingMatchView(matchConfiguration: MatchConfiguration, hostColor: Color, guestColor: Color, margin: Int) extends JComponent {
+class ScalingMatchView(hostColor: Color, guestColor: Color, margin: Int) extends JComponent {
 
 	private var currentMatchState: MatchState = null
 
@@ -44,11 +44,11 @@ class ScalingMatchView(matchConfiguration: MatchConfiguration, hostColor: Color,
 		graphics.asInstanceOf[Graphics2D].setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY)
 	}
 
-	private def fieldFormat = matchConfiguration.field.width / matchConfiguration.field.height
+	private def fieldFormat = currentMatchState.field.width / currentMatchState.field.height
 
 	private def componentFormat = (getWidth.toDouble - 2 * margin) / (getHeight.toDouble - 2 * margin)
 
-	private def scaleFactor: Double = if (fieldFormat <= componentFormat) (getHeight.toDouble - 2 * margin) / matchConfiguration.field.height else (getWidth.toDouble - 2 * margin) / matchConfiguration.field.width
+	private def scaleFactor: Double = if (fieldFormat <= componentFormat) (getHeight.toDouble - 2 * margin) / currentMatchState.field.height else (getWidth.toDouble - 2 * margin) / currentMatchState.field.width
 
 	private def createTransform: AffineTransform = {
 		val translate = AffineTransform.getTranslateInstance(getWidth / 2, getHeight / 2)
